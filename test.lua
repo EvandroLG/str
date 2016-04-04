@@ -47,5 +47,9 @@ test('is_ascii should returns true', function()
 end)
 
 test('is_ascii should returns false', function()
-    assert_equal(str.is_ascii('ت'), false)
+    assert_equal(str.is_ascii('á'), false)
+end)
+
+test('capitalize should returns string with first uppercase character', function()
+    assert_equal(str.capitalize('lua is a great language'), 'Lua is a great language')
 end)

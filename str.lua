@@ -15,6 +15,9 @@ local str = {
         return string.sub(s, -#finish) == finish
     end,
 
+    count = function(s)
+    end,
+
     split = function(s, pattern)
     end,
 
@@ -28,6 +31,19 @@ local str = {
     end,
 
     capitalize = function(s)
+        if #s == 0 then
+            return s
+        end
+
+        local output = {}
+        output[1] = string.upper(string.sub(s, 1, 1))
+
+        for i=2, #s do
+            local character = string.sub(s, i, i)
+            table.insert(output, string.lower(character))
+        end
+
+        return table.concat(output)
     end,
 
     is_ascii = function(s)
