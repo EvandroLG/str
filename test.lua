@@ -41,3 +41,11 @@ end)
 test('ends_with should returns false', function()
     assert_equal(str.ends_with('lua is a great language', 'programming'), false)
 end)
+
+test('is_ascii should returns true', function()
+    assert_equal(str.is_ascii('lua is a great language'), true)
+end)
+
+test('is_ascii should returns false', function()
+    assert_equal(str.is_ascii('ت'), false)
+end)

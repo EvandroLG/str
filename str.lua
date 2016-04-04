@@ -31,6 +31,14 @@ local str = {
     end,
 
     is_ascii = function(s)
+        for i=1, #s do
+            if string.byte(s:sub(i, i)) > 126 then return false end
+        end
+
+        return true
+    end,
+
+    is_utf8 = function(s)
     end,
 
     is_decimal = function(s)
