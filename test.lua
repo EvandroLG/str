@@ -1,7 +1,7 @@
 local str = require 'str'
 local format = string.format
 
-function test(name, func)
+function it(name, func)
   xpcall(function()
     func()
     print(format('[pass] %s', name))
@@ -18,10 +18,18 @@ function assert_equal(a, b)
   assert(_equal(a, b))
 end
 
-test('make slice with start and end', function()
+it('should returns "javascript"', function()
    assert_equal(str.slice('lua, javascript, python', 6, 15), 'javascript')
 end)
 
-test('make slice with start and without end parameter', function()
+it('should returns "javascript, python"', function()
    assert_equal(str.slice('lua, javascript, python', 6), 'javascript, python')
+end)
+
+it('should returns true', function()
+    assert_equal(str.starts_with('lua is a great language', 'lua'), true)
+end)
+
+it('should returns true', function()
+    assert_equal(str.starts_with('lua is a great language', 'ruby'), false)
 end)

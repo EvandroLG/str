@@ -7,10 +7,11 @@ local str = {
         return string.sub(s, start, ternary(finish, finish, #s))
     end,
 
-    min = function(s)
+    starts_with = function(s, start)
+        return string.sub(s, 1, #start) == start
     end,
 
-    max = function(s)
+    ends_with = function(s, start, finish)
     end,
 
     split = function(s, pattern)
@@ -23,12 +24,6 @@ local str = {
     end,
 
     trim_left = function(s)
-    end,
-
-    starts_with = function(s, start, finish)
-    end,
-
-    ends_with = function(s, start, finish)
     end,
 
     capitalize = function(s)
