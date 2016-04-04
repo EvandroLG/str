@@ -61,3 +61,11 @@ end)
 test('trim_left should returns string without left blank spaces', function()
     assert_equal(str.trim_left('  lua is a great language'), 'lua is a great language')
 end)
+
+test('trim_right should returns string without right blank spaces', function()
+    assert_equal(str.trim_right('lua is a great language  '), 'lua is a great language')
+end)
+
+test('trim should returns string with complete trim', function()
+    assert_equal(str.trim('  lua is a great language  '), 'lua is a great language')
+end)

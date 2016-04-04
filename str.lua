@@ -2,7 +2,8 @@ local function ternary(conditional, when_true, when_false)
     return conditional and when_true or when_false
 end
 
-local str = {
+local str = {}
+str = {
     slice = function(s, start, finish)
         return string.sub(s, start, ternary(finish, finish, #s))
     end,
@@ -31,10 +32,14 @@ local str = {
     split = function(s, pattern)
     end,
 
-    trim = function(s)
-    end,
-
     trim_right = function(s)
+        local n = #s
+
+        while string.find(string.sub(s, n, n), '%s') do
+            n = n - 1
+        end
+
+        return string.sub(s, 1, n)
     end,
 
     trim_left = function(s)
@@ -45,6 +50,10 @@ local str = {
         end
 
         return string.sub(s, n, #s)
+    end,
+
+    trim = function(s)
+        return str.trim_right(str.trim_left(s))
     end,
 
     capitalize = function(s)
