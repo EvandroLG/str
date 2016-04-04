@@ -11,7 +11,8 @@ local str = {
         return string.sub(s, 1, #start) == start
     end,
 
-    ends_with = function(s, start, finish)
+    ends_with = function(s, finish)
+        return string.sub(s, -#finish) == finish
     end,
 
     split = function(s, pattern)
