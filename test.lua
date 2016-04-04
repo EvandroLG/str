@@ -57,3 +57,7 @@ end)
 test('count should returns how many times the substring was found', function()
     assert_equal(str.count('lua is a great language. lua is a brazilian language', 'lua'), 2)
 end)
+
+test('trim_left should returns string without left blank spaces', function()
+    assert_equal(str.trim_left('  lua is a great language'), 'lua is a great language')
+end)

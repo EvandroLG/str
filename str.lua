@@ -31,13 +31,20 @@ local str = {
     split = function(s, pattern)
     end,
 
-    trim = function(s) 
+    trim = function(s)
     end,
 
     trim_right = function(s)
     end,
 
     trim_left = function(s)
+        local n = 1
+
+        while string.find(string.sub(s, n, n), '%s') do
+            n = n + 1
+        end
+
+        return string.sub(s, n, #s)
     end,
 
     capitalize = function(s)
