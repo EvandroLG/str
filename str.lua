@@ -15,7 +15,17 @@ local str = {
         return string.sub(s, -#finish) == finish
     end,
 
-    count = function(s)
+    count = function(s, substr)
+        local total = 0
+        local size_substr = #substr
+
+        for i=1, #s do
+            if string.sub(s, i, (i-1) + size_substr) == substr then
+                total = total + 1
+            end
+        end
+
+        return total
     end,
 
     split = function(s, pattern)
