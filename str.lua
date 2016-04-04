@@ -1,5 +1,10 @@
+local function ternary(conditional, when_true, when_false)
+    return conditional and when_true or when_false
+end
+
 local str = {
     slice = function(s, start, finish)
+        return string.sub(s, start, ternary(finish, finish, #s))
     end,
 
     min = function(s)

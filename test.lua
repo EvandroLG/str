@@ -1,4 +1,4 @@
-local base = require 'base_converter'
+local str = require 'str'
 local format = string.format
 
 function test(name, func)
@@ -17,3 +17,11 @@ end
 function assert_equal(a, b)
   assert(_equal(a, b))
 end
+
+test('make slice with start and end', function()
+   assert_equal(str.slice('lua, javascript, python', 6, 15), 'javascript')
+end)
+
+test('make slice with start and without end parameter', function()
+   assert_equal(str.slice('lua, javascript, python', 6), 'javascript, python')
+end)
