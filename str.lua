@@ -2,6 +2,10 @@ local function ternary(conditional, when_true, when_false)
     return conditional and when_true or when_false
 end
 
+local function to_bool(value)
+    return not not value
+end
+
 local str = {}
 str = {
     slice = function(s, start, finish)
@@ -87,6 +91,7 @@ str = {
     end,
 
     is_number = function(s)
+        return to_bool(string.find(s, '^%d*$'))
     end,
 
     is_digit = function(s)

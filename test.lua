@@ -69,3 +69,11 @@ end)
 test('trim should returns string with complete trim', function()
     assert_equal(str.trim('  lua is a great language  '), 'lua is a great language')
 end)
+
+test('is_number should returns true', function()
+    assert_equal(str.is_number('12345'), true)
+end)
+
+test('is_number should returns false', function()
+    assert_equal(str.is_number('1234a5'), false)
+end)
