@@ -39,6 +39,26 @@ str = {
     end,
 
     split = function(s, pattern)
+        local output = {}
+        local fpat = '(.-)' .. pattern
+        local last_end = 1
+        local _s, e, cap = s:find(fpat, 1)
+
+        while _s do
+            if _s ~= 1 or cap ~= '' then
+                table.insert(output, cap)
+            end
+
+            last_end = e+1
+            _s, e, cap = s:find(fpat, last_end)
+        end
+
+        if last_end <= #s then
+            cap = s:sub(last_end)
+            table.insert(output, cap)
+        end
+
+        return output
     end,
 
     trim_right = function(s)
