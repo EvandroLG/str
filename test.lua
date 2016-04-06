@@ -84,6 +84,7 @@ end)
 
 test('split should return a table resultant from the splited string', function()
     local result = str.split('lua is a great language', ' ')
+
     assert_equal(#result, 5)
     assert_equal(result[1], 'lua')
     assert_equal(result[2], 'is')
