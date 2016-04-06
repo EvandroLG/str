@@ -77,3 +77,7 @@ end)
 test('is_number should returns false', function()
     assert_equal(str.is_number('1234a5'), false)
 end)
+
+test('center should return centralized string', function()
+    assert_equal(str.center('lua', 3), '   lua   ')
+end)

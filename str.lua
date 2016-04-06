@@ -6,7 +6,12 @@ local function to_bool(value)
     return not not value
 end
 
-local str = {}
+local str = {
+    __VERSION = '0.0.1',
+    __DESCRIPTION = '',
+    __LICENCE = [[]]
+}
+
 str = {
     slice = function(s, start, finish)
         return string.sub(s, start, ternary(finish, finish, #s))
@@ -76,6 +81,16 @@ str = {
         return table.concat(output)
     end,
 
+    center = function(s, n)
+        local aux = ''
+
+        for i=1, n do
+            aux = aux .. ' '
+        end
+
+        return aux .. s .. aux
+    end,
+
     is_ascii = function(s)
         for i=1, #s do
             if string.byte(s:sub(i, i)) > 126 then return false end
@@ -84,17 +99,14 @@ str = {
         return true
     end,
 
-    is_utf8 = function(s)
+    slug = function(s)
     end,
 
-    is_decimal = function(s)
+    is_utf8 = function(s)
     end,
 
     is_number = function(s)
         return to_bool(string.find(s, '^%d*$'))
-    end,
-
-    is_digit = function(s)
     end
 }
 
