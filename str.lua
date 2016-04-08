@@ -1,3 +1,5 @@
+local utf8 = require 'lua-utf8'
+
 local function ternary(conditional, when_true, when_false)
     return conditional and when_true or when_false
 end
@@ -143,34 +145,33 @@ str = {
         return aux .. s .. aux
     end,
 
+    slug = function(s)
+        local splited = get_list_chars(s)
+        local output = {}
+        local accents = [[ÀÁÂÃÄÅàáâãäåÒÓÔÕÕÖØòóôõöøÈÉÊËèéêëðÇçÐÌÍÎÏìíîï
+                          ÙÚÛÜùúûüÑñŠšŸÿýŽž~"\'~^!?.:@#$%&*]]
+        local accents_out = [[AAAAAAaaaaaaOOOOOOOooooooEEEEeeeeeCcDIIIIiiii
+                            UUUUuuuuNnSsYyyZz---------------]]
+
+        for key, value in pairs(splited) do
+            local index_of = utf8.find(accents, value)
+
+            if index_of then
+                output[key] = utf8.sub(accents_out, index_of, index_of)
+            else
+                output[key] = value
+            end
+        end
+
+        return utf8.lower(table.concat(output, ''):gsub('%s', '-'))
+    end,
+
     is_ascii = function(s)
         for i=1, #s do
             if string.byte(s:sub(i, i)) > 126 then return false end
         end
 
         return true
-    end,
-
-    slug = function(s)
-        local splited = get_list_chars(s)
-        local output = {}
-        local accents = 'ÀÁÂÃÄÅàáâãäåÒÓÔÕÕÖØòóôõöøÈÉÊËèéêëðÇçÐÌÍÎÏìíîïÙÚÛÜùúûüÑñŠšŸÿýŽž~"\'~^!?.:@#$%&*'
-        local accents_out = 'AAAAAAaaaaaaOOOOOOOooooooEEEEeeeeeCcDIIIIiiiiUUUUuuuuNnSsYyyZzi-----'
-
-        for key, value in pairs(splited) do
-            local index_of = string.find(accents, value)
-
-            if index_of then
-                output[key] = string.sub(accents_out, index_of, index_of)
-            else
-                output[key] = value
-            end
-        end
-
-        return string.lower(table.concat(output, ''):gsub('%s', '-'))
-    end,
-
-    is_utf8 = function(s)
     end,
 
     is_number = function(s)

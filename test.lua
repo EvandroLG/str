@@ -94,6 +94,11 @@ test('split should return a table resultant from the splited string', function()
 end)
 
 test('slug should return a new lowercase string and without spaces', function()
-    local result = str.slug('lua is a great language')
+    local result = str.slug('Lua is a great language')
     assert_equal(result, 'lua-is-a-great-language')
+end)
+
+test('slug should return a new string without accents', function()
+    local result = str.slug('Lua é uma ótima linguagem')
+    assert_equal(result, 'lua-e-uma-otima-linguagem')
 end)
