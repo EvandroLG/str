@@ -1,12 +1,12 @@
 # str
-It's an string module with useful methods that don't exist in Lua core
+<code>str</code> is an string module with useful methods that don't exist in Lua core
 
 ## Installation
-To install str, simply run:
+To install str, run:
 ```sh
 $ luarocks install str
 ```
-Or copy the str.lua file and paste in your project.
+Or simply copy the str.lua file and paste in your project.
 
 ## Methods
 * str.<code>slice(value:string, start:number, end:number):string</code>
