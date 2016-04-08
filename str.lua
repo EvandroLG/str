@@ -6,6 +6,16 @@ local function to_bool(value)
     return not not value
 end
 
+local function get_list_chars(s)
+    local output = {}
+
+    for k, c in utf8.codes(s) do
+        table.insert(output, utf8.char(c))
+    end
+
+    return output
+end
+
 local str = {
     __VERSION = '0.0.1',
     __DESCRIPTION = '',
@@ -142,6 +152,22 @@ str = {
     end,
 
     slug = function(s)
+        local splited = get_list_chars(s)
+        local output = {}
+        local accents = 'ÀÁÂÃÄÅàáâãäåÒÓÔÕÕÖØòóôõöøÈÉÊËèéêëðÇçÐÌÍÎÏìíîïÙÚÛÜùúûüÑñŠšŸÿýŽž~"\'~^!?.:@#$%&*'
+        local accents_out = 'AAAAAAaaaaaaOOOOOOOooooooEEEEeeeeeCcDIIIIiiiiUUUUuuuuNnSsYyyZzi-----'
+
+        for key, value in pairs(splited) do
+            local index_of = string.find(accents, value)
+
+            if index_of then
+                output[key] = string.sub(accents_out, index_of, index_of)
+            else
+                output[key] = value
+            end
+        end
+
+        return string.lower(table.concat(output, ''):gsub('%s', '-'))
     end,
 
     is_utf8 = function(s)
