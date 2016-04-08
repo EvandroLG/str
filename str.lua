@@ -149,7 +149,7 @@ str = {
         local splited = get_list_chars(s)
         local output = {}
         local accents = [[ÀÁÂÃÄÅàáâãäåÒÓÔÕÕÖØòóôõöøÈÉÊËèéêëðÇçÐÌÍÎÏìíîï
-                          ÙÚÛÜùúûüÑñŠšŸÿýŽž~"\'~^!?.:@#$%&*]]
+                        ÙÚÛÜùúûüÑñŠšŸÿýŽž~"\'~^!?.:@#$%&*]]
         local accents_out = [[AAAAAAaaaaaaOOOOOOOooooooEEEEeeeeeCcDIIIIiiii
                             UUUUuuuuNnSsYyyZz---------------]]
 
