@@ -171,7 +171,7 @@ str = {
     end,
 
     is_number = function(s)
-        return to_bool(string.find(s, '^%d*$'))
+        return to_bool(string.find(s, '^%d+$'))
     end
 }
 
