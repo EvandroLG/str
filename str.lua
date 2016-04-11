@@ -57,13 +57,16 @@ str = {
 
     count = function(s, substr)
         local total = 0
-        local size_substr = #substr
+        local start = nil
+        local finish = 1
 
-        for i=1, #s do
-            if string.sub(s, i, (i-1) + size_substr) == substr then
+        repeat
+            start, finish = string.find(s, substr, finish, true)
+
+            if start then
                 total = total + 1
             end
-        end
+        until start == nil
 
         return total
     end,
