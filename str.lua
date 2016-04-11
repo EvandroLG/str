@@ -95,23 +95,11 @@ str = {
     end,
 
     trim_right = function(s)
-        local n = #s
-
-        while string.find(string.sub(s, n, n), '%s') do
-            n = n - 1
-        end
-
-        return string.sub(s, 1, n)
+        return string.match(s, '(.-)%s*$')
     end,
 
     trim_left = function(s)
-        local n = 1
-
-        while string.find(string.sub(s, n, n), '%s') do
-            n = n + 1
-        end
-
-        return string.sub(s, n, #s)
+        return string.match(s, '[^%s+].*')
     end,
 
     trim = function(s)
