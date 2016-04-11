@@ -54,6 +54,10 @@ test('capitalize should returns string with first uppercase character', function
     assert_equal(str.capitalize('lua is a great language'), 'Lua is a great language')
 end)
 
+test('count should returns 0', function()
+    assert_equal(str.count('lua is a great language. lua is a brazilian language', 'python'), 0)
+end)
+
 test('count should returns how many times the substring was found', function()
     assert_equal(str.count('lua is a great language. lua is a brazilian language', 'lua'), 2)
 end)
