@@ -21,3 +21,6 @@ Or simply copy the str.lua file and paste in your project.
 * str.<code>slug(value:string):string</code>
 * str.<code>is_ascii(value:string):boolean</code>
 * str.<code>is_number(value:string):boolean</code>
+* str.<code>each_line(value:string, callback:function):void</code>
+* str.<code>each_char(value:string, callback:function):void</code>
+* str.<code>each_byte(value:string, callback:function):void</code>
