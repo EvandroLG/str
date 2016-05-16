@@ -169,6 +169,12 @@ str = {
         for i=1, #s do
             callback(s:sub(i, i))
         end
+    end,
+
+    each_byte = function(s, callback)
+        str.each_char(s, function(char)
+            callback(char:byte())
+        end)
     end
 }
 

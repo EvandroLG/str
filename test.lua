@@ -122,3 +122,15 @@ test('each_char should returns every character of string', function()
     assert_equal(result[2], 'u')
     assert_equal(result[3], 'a')
 end)
+
+test('each_byte should returns the byte of every character of string', function()
+    local result = {}
+    str.each_byte('lua', function(char)
+        table.insert(result, char)
+    end)
+
+    assert_equal(#result, 3)
+    assert_equal(result[1], 108)
+    assert_equal(result[2], 117)
+    assert_equal(result[3], 97)
+end)
