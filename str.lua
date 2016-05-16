@@ -15,7 +15,7 @@ local function get_list_chars(s)
 end
 
 local str = {
-    __VERSION = '1.0.0',
+    __VERSION = '1.4.0',
     __DESCRIPTION = '',
     __LICENCE = [[
         The MIT License (MIT)
