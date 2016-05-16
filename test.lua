@@ -111,7 +111,7 @@ test('slug should return a new string without accents', function()
     assert_equal(result, 'lua-e-uma-otima-linguagem')
 end)
 
-test('each_char should returns every character of string', function()
+test('each_char should returns every character of the string', function()
     local result = {}
     str.each_char('lua', function(char)
         table.insert(result, char)
@@ -123,7 +123,7 @@ test('each_char should returns every character of string', function()
     assert_equal(result[3], 'a')
 end)
 
-test('each_byte should returns the byte of every character of string', function()
+test('each_byte should returns the byte of every character of the string', function()
     local result = {}
     str.each_byte('lua', function(char)
         table.insert(result, char)
@@ -133,4 +133,16 @@ test('each_byte should returns the byte of every character of string', function(
     assert_equal(result[1], 108)
     assert_equal(result[2], 117)
     assert_equal(result[3], 97)
+end)
+
+test('each_line should returns every line of the string', function()
+    local result = {}
+    str.each_line('lua\nruby\npython', function(line)
+        table.insert(result, line)
+    end)
+
+    assert_equal(#result, 3)
+    assert_equal(result[1], 'lua')
+    assert_equal(result[2], 'ruby')
+    assert_equal(result[3], 'python')
 end)

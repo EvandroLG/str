@@ -175,6 +175,12 @@ str = {
         str.each_char(s, function(char)
             callback(char:byte())
         end)
+    end,
+
+    each_line = function(s, callback)
+        for line in string.gmatch(s, '[^\n]+') do
+            callback(line)
+        end
     end
 }
 
