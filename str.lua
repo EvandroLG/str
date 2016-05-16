@@ -163,6 +163,12 @@ str = {
 
     is_number = function(s)
         return to_bool(string.find(s, '^%d+$'))
+    end,
+
+    each_char = function(s, callback)
+        for i=1, #s do
+            callback(s:sub(i, i))
+        end
     end
 }
 

@@ -110,3 +110,15 @@ test('slug should return a new string without accents', function()
     local result = str.slug('Lua é uma ótima linguagem')
     assert_equal(result, 'lua-e-uma-otima-linguagem')
 end)
+
+test('each_char should returns every character of string', function()
+    local result = {}
+    str.each_char('lua', function(char)
+        table.insert(result, char)
+    end)
+
+    assert_equal(#result, 3)
+    assert_equal(result[1], 'l')
+    assert_equal(result[2], 'u')
+    assert_equal(result[3], 'a')
+end)
