@@ -183,6 +183,16 @@ str = {
     for line in string.gmatch(s, '[^\n]+') do
       callback(line)
     end
+  end,
+
+  bytes = function(s)
+    local output = {}
+
+    str.each_char(s, function(s)
+      table.insert(output, string.byte(s))
+    end)
+
+    return output
   end
 }
 

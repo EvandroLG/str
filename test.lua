@@ -150,3 +150,13 @@ test('each_line should returns every line of the string', function()
   assert_equal(result[2], 'ruby')
   assert_equal(result[3], 'python')
 end)
+
+test('bytes should returns a table with bytes of every string character', function()
+  local result = str.bytes('lua')
+
+  assert_equal(type(result), 'table')
+  assert_equal(#result, 3)
+  assert_equal(result[1], 108)
+  assert_equal(result[2], 117)
+  assert_equal(result[3], 97)
+end)
