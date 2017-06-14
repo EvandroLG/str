@@ -17,6 +17,11 @@ function assert_equal(a, b)
   assert(a == b)
 end
 
+test('meta infos', function()
+  assert_equal(str.__VERSION, '1.4.0')
+  assert_equal(str.__DESCRIPTION, "str is a string module with useful methods that don't exist in Lua's core")
+end)
+
 test('slice should returns "javascript"', function()
   assert_equal(str.slice('lua, javascript, python', 6, 15), 'javascript')
 end)

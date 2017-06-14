@@ -23,7 +23,7 @@ local str
 
 str = {
   __VERSION = '1.4.0',
-  __DESCRIPTION = '',
+  __DESCRIPTION = "str is a string module with useful methods that don't exist in Lua's core",
   __LICENCE = [[
     The MIT License (MIT)
 
