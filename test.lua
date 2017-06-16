@@ -160,3 +160,8 @@ test('bytes should returns a table with bytes of every string character', functi
   assert_equal(result[2], 117)
   assert_equal(result[3], 97)
 end)
+
+test('delete should returns a copy of the string with the characters passed as arguments deleted', function()
+  local result = str.delete('hello world!', {'h', 'o'})
+  assert_equal(result, 'ell wrld!')
+end)

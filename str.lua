@@ -169,13 +169,13 @@ str = {
 
   each_char = function(s, callback)
     for i=1, #s do
-      callback(s:sub(i, i))
+      callback(s:sub(i, i), i)
     end
   end,
 
   each_byte = function(s, callback)
-    str.each_char(s, function(char)
-      callback(char:byte())
+    str.each_char(s, function(char, i)
+      callback(char:byte(), i)
     end)
   end,
 
@@ -191,6 +191,16 @@ str = {
     str.each_char(s, function(s)
       table.insert(output, string.byte(s))
     end)
+
+    return output
+  end,
+
+  delete = function(s, chars)
+    local output = s
+
+    for i=1, #chars do
+      output = output:gsub(chars[i], '')
+    end
 
     return output
   end
