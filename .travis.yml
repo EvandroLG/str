@@ -28,4 +28,4 @@ install:
   - sudo -E luarocks install simple_test
 
 script:
-  - lua test.lua
+  - lua ./test.lua
