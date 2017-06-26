@@ -21,7 +21,6 @@ before_install:
     --lua-version=$LUA_VER --lua-suffix=$LUA_SFX --with-lua-include="$LUA_INCDIR"
   - sudo make
   - sudo make install
-  - cd $TRAVIS_BUILD_DI
 
 install:
   - sudo -E luarocks install luautf8
