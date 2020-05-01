@@ -187,10 +187,21 @@ str = {
     return output
   end,
 
+  find_last = function(s, match)
+    local i = s:match('.*' .. match .. '()')
+
+    if not i then
+      return nil
+    end
+
+    return i - 1
+  end,
+
   truncate = function(s, options)
     local _options = options or {}
     local omission = _options.omission or '...'
     local size = _options.size or 30
+    local separator = _options.separator
 
     return str.slice(s, 1, size - #omission) .. omission
   end

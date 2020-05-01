@@ -211,3 +211,17 @@ test('truncate', function(a)
     'Lorem ips.'
   )
 end)
+
+test('find_last', function(a)
+  local value = 'Lua is great'
+
+  a.equal(
+    str.find_last(value, 'good'),
+    nil
+  )
+
+  a.equal(
+    str.find_last(value, 'great'),
+    12
+  )
+end)
