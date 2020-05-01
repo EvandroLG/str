@@ -185,6 +185,14 @@ str = {
     end
 
     return output
+  end,
+
+  truncate = function(s, options)
+    local _options = options or {}
+    local omission = _options.omission or '...'
+    local size = _options.size or 30
+
+    return str.slice(s, 1, size - #omission) .. omission
   end
 }
 
