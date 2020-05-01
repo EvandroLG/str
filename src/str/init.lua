@@ -1,23 +1,5 @@
--- str
--- author: Evandro Leopoldino Gonçalves <evandrolgoncalves@gmail.com>
--- https://github.com/evandrolg
--- License: MIT
-
 local utf8 = require 'lua-utf8'
-
-local function to_bool(value)
-  return not not value
-end
-
-local function get_list_chars(s)
-  local output = {}
-
-  for k, c in utf8.codes(s) do
-    table.insert(output, utf8.char(c))
-  end
-
-  return output
-end
+local utils = require 'str.utils'
 
 local str
 
@@ -135,7 +117,7 @@ str = {
   end,
 
   slug = function(s)
-    local splited = get_list_chars(s)
+    local splited = utils.get_list_chars(s)
     local output = {}
     local accents = [[ÀÁÂÃÄÅàáâãäåÒÓÔÕÕÖØòóôõöøÈÉÊËèéêëðÇçÐÌÍÎÏìíîï
     ÙÚÛÜùúûüÑñŠšŸÿýŽž~"\'~^!?.:@#$%&*]]
@@ -164,7 +146,7 @@ str = {
   end,
 
   is_number = function(s)
-    return to_bool(string.find(s, '^%d+$'))
+    return utils.to_bool(string.find(s, '^%d+$'))
   end,
 
   each_char = function(s, callback)
