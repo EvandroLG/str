@@ -66,7 +66,7 @@ Returns a new string with leading whitespace removed
 * str.<code>trim_right(value:string):string</code><br />
 Returns a new string with trailing whitespace removed
 
-See too:
+## See too:
 * [array.lua](http://www.github.com/evandrolg/array.lua)
 * [Hash.lua](https://github.com/EvandroLG/Hash.lua)
 
