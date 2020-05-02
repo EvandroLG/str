@@ -19,37 +19,32 @@ test('slice', function(a)
 end)
 
 test('starts_with', function(a)
-  a.equal(
-    str.starts_with('lua is a great language', 'lua'),
-    true
+  a.ok(
+    str.starts_with('lua is a great language', 'lua')
   )
 
-  a.equal(
-    str.starts_with('lua is a great language', 'ruby'),
-    false
+  a.not_ok(
+    str.starts_with('lua is a great language', 'ruby')
   )
 end)
 
 test('ends_with', function(a)
-  a.equal(
-    str.ends_with('lua is a great language', 'language'),
-    true
+  a.ok(
+    str.ends_with('lua is a great language', 'language')
   )
 
-  a.equal(
-    str.ends_with('lua is a great language', 'programming'),
-    false
+  a.not_ok(
+    str.ends_with('lua is a great language', 'programming')
   )
 end)
 
 test('is_ascii', function(a)
-  a.equal(
-    str.is_ascii('lua is a great language'),
-    true
+  a.ok(
+    str.is_ascii('lua is a great language')
   )
 
-  a.equal(
-    str.is_ascii('á'), false
+  a.not_ok(
+    str.is_ascii('á')
   )
 end)
 
@@ -94,19 +89,16 @@ test('trim', function(a)
 end)
 
 test('is_number', function(a)
-  a.equal(
-    str.is_number('12345'),
-    true
+  a.ok(
+    str.is_number('12345')
   )
 
-  a.equal(
-    str.is_number('1234a5'),
-    false
+  a.not_ok(
+    str.is_number('1234a5')
   )
 
-  a.equal(
-    str.is_number(''),
-    false
+  a.not_ok(
+    str.is_number('')
   )
 end)
 
@@ -118,14 +110,10 @@ test('center', function(a)
 end)
 
 test('split', function(a)
-  local result = str.split('lua is a great language', ' ')
-
-  a.equal(#result, 5)
-  a.equal(result[1], 'lua')
-  a.equal(result[2], 'is')
-  a.equal(result[3], 'a')
-  a.equal(result[4], 'great')
-  a.equal(result[5], 'language')
+  a.deep_equal(
+    str.split('lua is a great language', ' '),
+    { 'lua', 'is', 'a', 'great', 'language' }
+  )
 end)
 
 test('slug', function(a)
@@ -146,10 +134,7 @@ test('each_char', function(a)
     table.insert(result, char)
   end)
 
-  a.equal(#result, 3)
-  a.equal(result[1], 'l')
-  a.equal(result[2], 'u')
-  a.equal(result[3], 'a')
+  a.deep_equal(result, { 'l', 'u', 'a' })
 end)
 
 test('each_byte', function(a)
@@ -158,10 +143,7 @@ test('each_byte', function(a)
     table.insert(result, char)
   end)
 
-  a.equal(#result, 3)
-  a.equal(result[1], 108)
-  a.equal(result[2], 117)
-  a.equal(result[3], 97)
+  a.deep_equal(result, { 108, 117, 97 })
 end)
 
 test('each_line', function(a)
@@ -170,20 +152,11 @@ test('each_line', function(a)
     table.insert(result, line)
   end)
 
-  a.equal(#result, 3)
-  a.equal(result[1], 'lua')
-  a.equal(result[2], 'ruby')
-  a.equal(result[3], 'python')
+  a.deep_equal(result, { 'lua', 'ruby', 'python' })
 end)
 
 test('bytes', function(a)
-  local result = str.bytes('lua')
-
-  a.equal(type(result), 'table')
-  a.equal(#result, 3)
-  a.equal(result[1], 108)
-  a.equal(result[2], 117)
-  a.equal(result[3], 97)
+  a.deep_equal(str.bytes('lua'), { 108, 117, 97 })
 end)
 
 test('delete', function(a)
