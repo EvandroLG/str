@@ -1,9 +1,9 @@
 package = 'str'
-version = '1.0.4-0'
+version = '1.0.5-0'
 
 source = {
   url = 'git://github.com/evandrolg/str.git',
-  tag = 'v1.0.4'
+  tag = 'v1.0.5'
 }
 
 description = {
@@ -21,6 +21,7 @@ dependencies = {
 build = {
   type = "builtin",
   modules = {
-    ['str'] = "str.lua"
+    ['str'] = "src/str/init.lua"
+    ['str.utils'] = "src/str/utils.lua"
   }
 }
