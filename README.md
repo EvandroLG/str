@@ -69,7 +69,7 @@ Returns a new string with trailing whitespace removed
 * str.<code>find_last(value:string, match:string):string</code><br />
 Returns the index within the given string of the last occurrence of the specified value to `match` parameter. If the value is not found, it returns nil.
 
-* str.<code>truncate(value:string, options: { omission:string, size:number, separator:string }):string</code><br />
+* str.<code>truncate(value:string, options: { size:number, omission:string, separator:string }):string</code><br />
 Truncates string if it's longer than the `size` value passed by parameter.
 
 ## Author
