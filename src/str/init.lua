@@ -202,8 +202,14 @@ str = {
     local omission = _options.omission or '...'
     local size = _options.size or 30
     local separator = _options.separator
+    local cutted = str.slice(s, 1, size - #omission)
 
-    return str.slice(s, 1, size - #omission) .. omission
+    if separator then
+      local i = str.find_last(cutted, separator) - 1
+      return str.slice(s, 1, i) .. omission
+    end
+
+    return cutted .. omission
   end
 }
 

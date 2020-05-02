@@ -210,6 +210,11 @@ test('truncate', function(a)
     str.truncate(value, { size = 10, omission = '.' }),
     'Lorem ips.'
   )
+
+  a.equal(
+    str.truncate(value, { separator = ' ' }),
+    'Lorem ipsum Lorem ipsum...'
+  )
 end)
 
 test('find_last', function(a)
