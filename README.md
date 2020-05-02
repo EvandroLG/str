@@ -66,11 +66,12 @@ Returns a new string with leading whitespace removed
 * str.<code>trim_right(value:string):string</code><br />
 Returns a new string with trailing whitespace removed
 
-## See too:
-* [array.lua](http://www.github.com/evandrolg/array.lua)
-* [Hash.lua](https://github.com/EvandroLG/Hash.lua)
-
 ## Author
 |[![@evandrolg](https://avatars3.githubusercontent.com/u/444054?v=3&amp;s=96)](https://github.com/evandrolg)|
 |:---:|
 |[@evandrolg](http://www.github.com/evandrolg)|
+
+## See too:
+* [array.lua](http://www.github.com/evandrolg/array.lua)
+* [Hash.lua](https://github.com/EvandroLG/Hash.lua)
+
