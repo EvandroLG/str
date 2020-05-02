@@ -30,18 +30,35 @@ str = {
     SOFTWARE.
   ]],
 
+  -- extracts a part of the string and returns a new string
+  -- @param s {string}
+  -- @param start {number}
+  -- @param finish {number | nil}
+  -- @return {string}
   slice = function(s, start, finish)
     return string.sub(s, start, finish or #s)
   end,
 
+  -- checks whether string starts with the value passed by parameter
+  -- @param s {string}
+  -- @param start {number}
+  -- @return {string}
   starts_with = function(s, start)
     return string.sub(s, 1, #start) == start
   end,
 
+  -- checks whether string ends with the value passed by parameter
+  -- @param s {string}
+  -- @param finish {number}
+  -- @return {string}
   ends_with = function(s, finish)
     return string.sub(s, -#finish) == finish
   end,
 
+  -- returns how many times the substring was found
+  -- @param s {string}
+  -- @param substr {string}
+  -- @return {number}
   count = function(s, substr)
     local total = 0
     local start = nil
@@ -55,6 +72,10 @@ str = {
     return total
   end,
 
+  -- splits the string into substring using the specified separator and return them as a table
+  -- @param s {string}
+  -- @param pattern {string}
+  -- @return {table}
   split = function(s, pattern)
     local output = {}
     local fpat = '(.-)' .. pattern
@@ -78,18 +99,32 @@ str = {
     return output
   end,
 
+  -- returns a new string with trailing whitespace removed
+  -- @param s {string}
+  -- @return {string}
   trim_right = function(s)
     return string.match(s, '(.-)%s*$')
   end,
 
+  -- returns a new string with leading whitespace removed
+  -- @param s {string}
+  -- @return {string}
   trim_left = function(s)
     return string.match(s, '[^%s+].*')
   end,
 
+  -- returns a copy of string leading and trailing whitespace removed
+  -- @param s {string}
+  -- @return {string}
   trim = function(s)
-    return str.trim_right(str.trim_left(s))
+    return str.trim_right(
+      str.trim_left(s)
+    )
   end,
 
+  -- returns a new string with the first character converted to uppercase and the remainder to lowercase
+  -- @param s {string}
+  -- @return {string}
   capitalize = function(s)
     if #s == 0 then
       return s
@@ -106,6 +141,10 @@ str = {
     return table.concat(output)
   end,
 
+  -- returns a copy of the string passed as parameter centralized with spaces passed in size parameter
+  -- @param s {string}
+  -- @param n {number}
+  -- @return {string}
   center = function(s, n)
     local aux = ''
 
@@ -116,6 +155,9 @@ str = {
     return aux .. s .. aux
   end,
 
+  -- converts string to slug and returns it as a new string
+  -- @param s {string}
+  -- @return {string}
   slug = function(s)
     local splited = utils.get_list_chars(s)
     local output = {}
@@ -137,6 +179,9 @@ str = {
     return utf8.lower(table.concat(output, ''):gsub('%s', '-'))
   end,
 
+  -- checks whether the string has only ascii characters
+  -- @param s {string}
+  -- @return {boolean}
   is_ascii = function(s)
     for i=1, #s do
       if string.byte(s:sub(i, i)) > 126 then return false end
@@ -145,28 +190,48 @@ str = {
     return true
   end,
 
+  -- checks whether the string has only numbers characters
+  -- @param s {string}
+  -- @return {boolean}
   is_number = function(s)
-    return utils.to_bool(string.find(s, '^%d+$'))
+    return utils.to_bool(
+      string.find(s, '^%d+$')
+    )
   end,
 
+  -- executes a provided function once for each character of the string
+  -- @param s {string}
+  -- @param callback {function}
+  -- @return {void}
   each_char = function(s, callback)
     for i=1, #s do
       callback(s:sub(i, i), i)
     end
   end,
 
+  -- passes every byte in string to the given function
+  -- @param s {string}
+  -- @param callback {function}
+  -- @return {void}
   each_byte = function(s, callback)
     str.each_char(s, function(char, i)
       callback(char:byte(), i)
     end)
   end,
 
+  -- executes a provided function once for each line of the string
+  -- @param s {string}
+  -- @param callback {function}
+  -- @return {void}
   each_line = function(s, callback)
     for line in string.gmatch(s, '[^\n]+') do
       callback(line)
     end
   end,
 
+  -- returns a table with the byte of every string's character
+  -- @param s {string}
+  -- @return {table}
   bytes = function(s)
     local output = {}
 
@@ -177,6 +242,10 @@ str = {
     return output
   end,
 
+  -- returns a copy of the string passed by parameter without the specified characters
+  -- @param s {string}
+  -- @param chars {table}
+  -- @return {table}
   delete = function(s, chars)
     local output = s
 
@@ -187,6 +256,11 @@ str = {
     return output
   end,
 
+  -- returns the index within the given string of the last occurrence of the specified value;
+  -- returns nil if the value is not found
+  -- @param s {string}
+  -- @param match {string}
+  -- @return {table}
   find_last = function(s, match)
     local i = s:match('.*' .. match .. '()')
 
@@ -197,6 +271,10 @@ str = {
     return i - 1
   end,
 
+  -- truncates string if it's longer than the given maximum size
+  -- @param s {string}
+  -- @param options {table}
+  -- @return {table}
   truncate = function(s, options)
     local _options = options or {}
     local omission = _options.omission or '...'
