@@ -72,12 +72,12 @@ Returns the index within the given string of the last occurrence of the specifie
 * str.<code>truncate(value:string, options: { size:number, omission:string, separator:string }):string</code><br />
 Truncates string if it's longer than the `size` value passed by parameter.
 
+## See too:
+* [array.lua](http://www.github.com/evandrolg/array.lua)
+* [Hash.lua](https://github.com/EvandroLG/Hash.lua)
+
 ## Author
 |[![@evandrolg](https://avatars3.githubusercontent.com/u/444054?v=3&amp;s=96)](https://github.com/evandrolg)|
 |:---:|
 |[@evandrolg](http://www.github.com/evandrolg)|
-
-## See too:
-* [array.lua](http://www.github.com/evandrolg/array.lua)
-* [Hash.lua](https://github.com/EvandroLG/Hash.lua)
 
