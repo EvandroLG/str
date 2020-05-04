@@ -77,7 +77,7 @@ Truncates string if it's longer than the `size` value passed by parameter.
 * [Hash.lua](https://github.com/EvandroLG/Hash.lua)
 
 ## Author
-|[![@evandrolg](https://avatars3.githubusercontent.com/u/444054?v=3&amp;s=96)](https://github.com/evandrolg)|
+|[![@evandrolg](https://avatars3.githubusercontent.com/u/444054?v=3&amp;s=96)](https://twitter.com/evandrolg)|
 |:---:|
 |[@evandrolg](http://www.twitter.com/evandrolg)|
 
