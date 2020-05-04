@@ -79,5 +79,5 @@ Truncates string if it's longer than the `size` value passed by parameter.
 ## Author
 |[![@evandrolg](https://avatars3.githubusercontent.com/u/444054?v=3&amp;s=96)](https://github.com/evandrolg)|
 |:---:|
-|[@evandrolg](http://www.github.com/evandrolg)|
+|[@evandrolg](http://www.twitter.com/evandrolg)|
 
