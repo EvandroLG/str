@@ -288,6 +288,27 @@ str = {
     end
 
     return cutted .. omission
+  end,
+
+  -- converts string to `camel case`
+  -- @param s {string}
+  -- @return string
+  camel_case = function(s)
+    local lower = string.lower(s)
+    local splitted = str.split(lower, ' ')
+    local result = {}
+    table.insert(result, splitted[1])
+
+    for i=2, #splitted do 
+      local value = splitted[i]
+
+      table.insert(
+        result,
+        str.capitalize(value)
+      )
+    end
+
+    return table.concat(result, '')
   end
 }
 

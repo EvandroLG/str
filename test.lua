@@ -203,3 +203,10 @@ test('find_last', function(a)
     12
   )
 end)
+
+test('camel_case', function(a)
+  a.equal(
+    str.camel_case('Lua is great'),
+    'luaIsGreat'
+  )
+end)
