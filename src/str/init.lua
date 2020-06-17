@@ -299,17 +299,16 @@ str = {
   -- @return string
   camel_case = function(s)
     local lower = string.lower(s)
-    local splitted = str.split(lower, ' ')
     local result = {}
-    table.insert(result, splitted[1])
+    local is_first_word = true
 
-    for i=2, #splitted do
-      local value = splitted[i]
-
-      table.insert(
-        result,
-        str.capitalize(value)
-      )
+    for w in string.gmatch(lower, '%w+') do
+      if is_first_word then
+        table.insert(result, w)
+        is_first_word = false
+      else
+        table.insert(result, str.capitalize(w))
+      end
     end
 
     return table.concat(result, '')

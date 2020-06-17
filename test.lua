@@ -205,8 +205,19 @@ test('find_last', function(a)
 end)
 
 test('camel_case', function(a)
+  local expected = 'luaIsGreat'
   a.equal(
     str.camel_case('Lua is great'),
-    'luaIsGreat'
+    expected
+  )
+
+  a.equal(
+    str.camel_case('Lua-is-great'),
+    expected
+  )
+
+  a.equal(
+    str.camel_case('Lua_is_great'),
+    expected
   )
 end)
