@@ -301,12 +301,21 @@ str = {
     return utils.match_case(s, str.capitalize)
   end,
 
-  -- converts string to `kebbab case`
+  -- converts string to `kebab case`
   -- @param s {string}
   -- @return string
   kebab_case = function(s)
     return utils.match_case(s, function(w)
       return '-' .. w
+    end)
+  end,
+
+  -- converts string to `snake case`
+  -- @param s {string}
+  -- @return string
+  snake_case = function(s)
+    return utils.match_case(s, function(w)
+      return '_' .. w
     end)
   end
 }

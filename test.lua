@@ -240,3 +240,22 @@ test('kebab_case', function(a)
     expected
   )
 end)
+
+test('snake_case', function(a)
+  local expected = 'lua_is_great'
+
+  a.equal(
+    str.snake_case('Lua is great'),
+    expected
+  )
+
+  a.equal(
+    str.snake_case('Lua-is-great'),
+    expected
+  )
+
+  a.equal(
+    str.snake_case('Lua_is_great'),
+    expected
+  )
+end)
