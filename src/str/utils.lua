@@ -20,7 +20,29 @@ local function get_list_chars(s)
   return output
 end
 
+-- convert all characters to lowercase and apply a `transformer` over each word
+-- @param s {string}
+-- @param transformer {function}
+-- @return {table}
+local function match_case(s, transformer)
+  local lower = string.lower(s)
+  local result = {}
+  local is_first_word = true
+
+  for w in string.gmatch(lower, '%w+') do
+    if is_first_word then
+      table.insert(result, w)
+      is_first_word = false
+    else
+      table.insert(result, transformer(w))
+    end
+  end
+
+  return table.concat(result, '')
+end
+
 return {
   to_bool = to_bool,
-  get_list_chars = get_list_chars
+  get_list_chars = get_list_chars,
+  match_case = match_case
 };

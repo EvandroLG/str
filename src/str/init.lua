@@ -298,20 +298,16 @@ str = {
   -- @param s {string}
   -- @return string
   camel_case = function(s)
-    local lower = string.lower(s)
-    local result = {}
-    local is_first_word = true
+    return utils.match_case(s, str.capitalize)
+  end,
 
-    for w in string.gmatch(lower, '%w+') do
-      if is_first_word then
-        table.insert(result, w)
-        is_first_word = false
-      else
-        table.insert(result, str.capitalize(w))
-      end
-    end
-
-    return table.concat(result, '')
+  -- converts string to `kebbab case`
+  -- @param s {string}
+  -- @return string
+  kebab_case = function(s)
+    return utils.match_case(s, function(w)
+      return '-' .. w
+    end)
   end
 }
 

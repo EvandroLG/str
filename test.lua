@@ -221,3 +221,22 @@ test('camel_case', function(a)
     expected
   )
 end)
+
+test('kebab_case', function(a)
+  local expected = 'lua-is-great'
+
+  a.equal(
+    str.kebab_case('Lua is great'),
+    expected
+  )
+
+  a.equal(
+    str.kebab_case('Lua-is-great'),
+    expected
+  )
+
+  a.equal(
+    str.kebab_case('Lua_is_great'),
+    expected
+  )
+end)
