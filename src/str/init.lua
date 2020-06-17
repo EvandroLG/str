@@ -130,15 +130,19 @@ str = {
       return s
     end
 
-    local output = {}
-    output[1] = string.upper(string.sub(s, 1, 1))
-
-    for i=2, #s do
-      local character = string.sub(s, i, i)
-      table.insert(output, string.lower(character))
+    function upperFirst()
+      return string.upper(
+        string.sub(s, 1, 1)
+      )
     end
 
-    return table.concat(output)
+    function lowerRest()
+      return string.lower(
+        string.sub(s, 2)
+      )
+    end
+
+    return upperFirst() .. lowerRest()
   end,
 
   -- returns a copy of the string passed as parameter centralized with spaces passed in size parameter
@@ -299,7 +303,7 @@ str = {
     local result = {}
     table.insert(result, splitted[1])
 
-    for i=2, #splitted do 
+    for i=2, #splitted do
       local value = splitted[i]
 
       table.insert(
