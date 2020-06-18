@@ -41,8 +41,47 @@ local function match_case(s, transformer)
   return table.concat(result, '')
 end
 
+local function hash_keys(obj)
+  local output = {}
+
+  for k in pairs(obj) do
+    table.insert(output, k)
+  end
+
+  return output
+end
+
+-- determines wether the substring was found within the string
+-- @param s {string}
+-- @param substr {string}
+-- @return boolean
+local function includes(s, substr)
+  for i=1, #s do
+    local value = string.sub(s, i, i+#substr-1)
+    if value == substr then return true end
+  end
+
+  return false
+end
+
+-- determines wether one of the items intot he array was found within the string
+-- @param s {string}
+-- @param array {table}
+-- @return boolean
+local function includes_item(s, array)
+  for i, v in pairs(array) do
+    local result = includes(s, v)
+    if result then return true end
+  end
+
+  return false
+end
+
 return {
   to_bool = to_bool,
   get_list_chars = get_list_chars,
-  match_case = match_case
-};
+  match_case = match_case,
+  hash_keys = hash_keys,
+  includes = includes,
+  includes_item = includes_item
+}

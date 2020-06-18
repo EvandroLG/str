@@ -319,14 +319,38 @@ str = {
     end)
   end,
 
-  includes = function(s, sub)
+  -- determines wether the substring was found within the string
+  -- @param s {string}
+  -- @param substr {string}
+  -- @return boolean
+  includes = function(s, substr)
+    return utils.includes(s, substr)
+  end,
+
+  -- converts the characters "&", "<", ">", '"', and "'" in string to their corresponding html entities.
+  -- @param s {string}
+  -- @return string
+  escape = function(s)
+    local match = {
+      ['<'] = '&lt;',
+      ['>'] = '&gt;',
+      ['"'] = '&quot;',
+      ["'"] = '&apos;',
+      ['&'] = '&amp;'
+    }
+
+    local keys = utils.hash_keys(match)
+    local output = {}
+
     for i=1, #s do
-      local value = string.sub(s, i, i+#sub-1)
-      if value == sub then return true end
+      local char = string.sub(s, i, i)
+      local is_special = utils.includes_item(char, keys)
+
+      table.insert(output, is_special and match[char] or char)
     end
 
-    return false
-  end,
+    return table.concat(output, '')
+  end
 }
 
 return str

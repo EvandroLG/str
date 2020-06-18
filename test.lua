@@ -260,13 +260,6 @@ test('snake_case', function(a)
   )
 end)
 
---test('escape', function(a)
-  --a.equal(
-    --str.escape('tom & jerry <'),
-    --'tom &amp; jerry &lt;'
-  --)
---end)
-
 test('includes', function(a)
   local value = 'Lua is great'
 
@@ -284,5 +277,17 @@ test('includes', function(a)
 
   a.ok(
     str.includes(value, 'Lua ')
+  )
+end)
+
+test('escape', function(a)
+  a.equal(
+    str.escape('"tom & jerry" <>'),
+    '&quot;tom &amp; jerry&quot; &lt;&gt;'
+  )
+
+  a.equal(
+    str.escape("'tom & jerry' <>"),
+    '&apos;tom &amp; jerry&apos; &lt;&gt;'
   )
 end)
