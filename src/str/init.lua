@@ -130,13 +130,13 @@ str = {
       return s
     end
 
-    function upperFirst()
+    local function upperFirst()
       return string.upper(
         string.sub(s, 1, 1)
       )
     end
 
-    function lowerRest()
+    local function lowerRest()
       return string.lower(
         string.sub(s, 2)
       )
@@ -317,7 +317,16 @@ str = {
     return utils.match_case(s, function(w)
       return '_' .. w
     end)
-  end
+  end,
+
+  includes = function(s, sub)
+    for i=1, #s do
+      local value = string.sub(s, i, i+#sub-1)
+      if value == sub then return true end
+    end
+
+    return false
+  end,
 }
 
 return str
