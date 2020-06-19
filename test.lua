@@ -320,3 +320,10 @@ test('unescape', function(a)
     "'tom & jerry' <>"
   )
 end)
+
+test('replace', function(a)
+  a.equal(
+    str.replace('Lua is cute. Lua is cute too', 'cute', 'great'),
+    'Lua is great. Lua is great too'
+  )
+end)

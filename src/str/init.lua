@@ -392,6 +392,11 @@ str = {
     end
 
     return table.concat(output, '')
+  end,
+
+  replace = function(s, substr, new_substr)
+    local result = string.gsub(s, substr, new_substr)
+    return result
   end
 }
 
