@@ -308,3 +308,15 @@ test('index_of', function(a)
     -1
   )
 end)
+
+test('unescape', function(a)
+  a.equal(
+    str.unescape('&quot;tom &amp; jerry&quot; &lt;&gt;'),
+    '"tom & jerry" <>'
+  )
+
+  a.equal(
+    str.unescape('&apos;tom &amp; jerry&apos; &lt;&gt;'),
+    "'tom & jerry' <>"
+  )
+end)

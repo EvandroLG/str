@@ -356,6 +356,43 @@ str = {
     local index = string.find(s, substr, 1, true)
     return index or -1
   end,
+
+  unescape = function(s)
+    local match = {
+      ['&lt;'] = '<',
+      ['&gt;'] = '>',
+      ['&quot;'] = '"',
+      ['&apos;'] = "'",
+      ['&amp;'] = '&'
+    }
+
+    local output = {}
+    local i = 1
+
+    while i <= #s do
+      local value = string.sub(s, i)
+      local was_found = false
+
+      for k, v in pairs(match) do
+        if str.index_of(value, k) == 1 then
+          table.insert(output, v)
+          was_found = true
+          i = i + #k
+        end
+      end
+
+      if not was_found then
+        table.insert(
+          output,
+          string.sub(s, i, i)
+        )
+
+        i = i + 1
+      end
+    end
+
+    return table.concat(output, '')
+  end
 }
 
 return str
