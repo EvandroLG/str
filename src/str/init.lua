@@ -350,7 +350,12 @@ str = {
     end
 
     return table.concat(output, '')
-  end
+  end,
+
+  index_of = function(s, substr)
+    local index = string.find(s, substr, 1, true)
+    return index or -1
+  end,
 }
 
 return str

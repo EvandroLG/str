@@ -291,3 +291,20 @@ test('escape', function(a)
     '&apos;tom &amp; jerry&apos; &lt;&gt;'
   )
 end)
+
+test('index_of', function(a)
+  a.equal(
+    str.index_of('lua and js', 'lua'),
+    1
+  )
+
+  a.equal(
+    str.index_of('lua and js', 'js'),
+    9
+  )
+
+  a.equal(
+    str.index_of('lua and js', 'javascript'),
+    -1
+  )
+end)
