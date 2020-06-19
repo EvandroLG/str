@@ -366,32 +366,13 @@ str = {
       ['&amp;'] = '&'
     }
 
-    local output = {}
-    local i = 1
+    local result = s
 
-    while i <= #s do
-      local value = string.sub(s, i)
-      local was_found = false
-
-      for k, v in pairs(match) do
-        if str.index_of(value, k) == 1 then
-          table.insert(output, v)
-          was_found = true
-          i = i + #k
-        end
-      end
-
-      if not was_found then
-        table.insert(
-          output,
-          string.sub(s, i, i)
-        )
-
-        i = i + 1
-      end
+    for k, v in pairs(match) do
+      result = str.replace(result, k, v)
     end
 
-    return table.concat(output, '')
+    return result
   end,
 
   replace = function(s, substr, new_substr)
