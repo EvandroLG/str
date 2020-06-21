@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>init</title>
+    <title>str - a string module with useful methods that don't exist in Lua's core</title>
     <style>
       :root {
         --shadow: 0 0 0.5rem #9da5ab;
@@ -117,146 +117,146 @@
     </a>
     <div class="wrapper">
       <div class="menu">
-        <h1>init</h1>
+        <h1>str</h1>
         <ul>
             <li>
               <a href="#bytes">
-                init.bytes
+                str.bytes
               </a>
             </li>
             <li>
               <a href="#camel_case">
-                init.camel_case
+                str.camel_case
               </a>
             </li>
             <li>
               <a href="#capitalize">
-                init.capitalize
+                str.capitalize
               </a>
             </li>
             <li>
               <a href="#center">
-                init.center
+                str.center
               </a>
             </li>
             <li>
               <a href="#count">
-                init.count
+                str.count
               </a>
             </li>
             <li>
               <a href="#delete">
-                init.delete
+                str.delete
               </a>
             </li>
             <li>
               <a href="#each_byte">
-                init.each_byte
+                str.each_byte
               </a>
             </li>
             <li>
               <a href="#each_char">
-                init.each_char
+                str.each_char
               </a>
             </li>
             <li>
               <a href="#each_line">
-                init.each_line
+                str.each_line
               </a>
             </li>
             <li>
               <a href="#ends_with">
-                init.ends_with
+                str.ends_with
               </a>
             </li>
             <li>
               <a href="#escape">
-                init.escape
+                str.escape
               </a>
             </li>
             <li>
               <a href="#find_last">
-                init.find_last
+                str.find_last
               </a>
             </li>
             <li>
               <a href="#includes">
-                init.includes
+                str.includes
               </a>
             </li>
             <li>
               <a href="#index_of">
-                init.index_of
+                str.index_of
               </a>
             </li>
             <li>
               <a href="#is_ascii">
-                init.is_ascii
+                str.is_ascii
               </a>
             </li>
             <li>
               <a href="#is_number">
-                init.is_number
+                str.is_number
               </a>
             </li>
             <li>
               <a href="#kebab_case">
-                init.kebab_case
+                str.kebab_case
               </a>
             </li>
             <li>
               <a href="#replace">
-                init.replace
+                str.replace
               </a>
             </li>
             <li>
               <a href="#slice">
-                init.slice
+                str.slice
               </a>
             </li>
             <li>
               <a href="#slug">
-                init.slug
+                str.slug
               </a>
             </li>
             <li>
               <a href="#snake_case">
-                init.snake_case
+                str.snake_case
               </a>
             </li>
             <li>
               <a href="#split">
-                init.split
+                str.split
               </a>
             </li>
             <li>
               <a href="#starts_with">
-                init.starts_with
+                str.starts_with
               </a>
             </li>
             <li>
               <a href="#trim">
-                init.trim
+                str.trim
               </a>
             </li>
             <li>
               <a href="#trim_left">
-                init.trim_left
+                str.trim_left
               </a>
             </li>
             <li>
               <a href="#trim_right">
-                init.trim_right
+                str.trim_right
               </a>
             </li>
             <li>
               <a href="#truncate">
-                init.truncate
+                str.truncate
               </a>
             </li>
             <li>
               <a href="#unescape">
-                init.unescape
+                str.unescape
               </a>
             </li>
         </ul>
@@ -265,169 +265,169 @@
       <main>
           <div id="bytes">
             <h2>
-              <code>init.bytes(s:string):table</code>
+              <code>str.bytes(s:string):table</code>
             </h2>
             <p>returns a table with the byte of every string&#x27;s character</p>
           </div>
           <div id="camel_case">
             <h2>
-              <code>init.camel_case(s:string):string</code>
+              <code>str.camel_case(s:string):string</code>
             </h2>
             <p>converts string to &#x60;camel case&#x60;</p>
           </div>
           <div id="capitalize">
             <h2>
-              <code>init.capitalize(s:string):string</code>
+              <code>str.capitalize(s:string):string</code>
             </h2>
             <p>returns a new string with the first character converted to uppercase and the remainder to lowercase</p>
           </div>
           <div id="center">
             <h2>
-              <code>init.center(s:string,n:number):string</code>
+              <code>str.center(s:string,n:number):string</code>
             </h2>
             <p>returns a copy of the string passed as parameter centralized with spaces passed in size parameter</p>
           </div>
           <div id="count">
             <h2>
-              <code>init.count(s:string,substr:string):number</code>
+              <code>str.count(s:string,substr:string):number</code>
             </h2>
             <p>returns how many times the substring was found</p>
           </div>
           <div id="delete">
             <h2>
-              <code>init.delete(s:string,chars:table):table</code>
+              <code>str.delete(s:string,chars:table):table</code>
             </h2>
             <p>returns a copy of the string passed by parameter without the specified characters</p>
           </div>
           <div id="each_byte">
             <h2>
-              <code>init.each_byte(s:string,callback:function):void</code>
+              <code>str.each_byte(s:string,callback:function):void</code>
             </h2>
             <p>passes every byte in string to the given function</p>
           </div>
           <div id="each_char">
             <h2>
-              <code>init.each_char(s:string,callback:function):void</code>
+              <code>str.each_char(s:string,callback:function):void</code>
             </h2>
             <p>executes a provided function once for each character of the string</p>
           </div>
           <div id="each_line">
             <h2>
-              <code>init.each_line(s:string,callback:function):void</code>
+              <code>str.each_line(s:string,callback:function):void</code>
             </h2>
             <p>executes a provided function once for each line of the string</p>
           </div>
           <div id="ends_with">
             <h2>
-              <code>init.ends_with(s:string,finish:number):string</code>
+              <code>str.ends_with(s:string,finish:number):string</code>
             </h2>
             <p>checks whether string ends with the value passed by parameter</p>
           </div>
           <div id="escape">
             <h2>
-              <code>init.escape(s:string):string</code>
+              <code>str.escape(s:string):string</code>
             </h2>
             <p>converts the characters &quot;&amp;&quot;, &quot;&lt;&quot;, &quot;&gt;&quot;, &#x27;&quot;&#x27;, and &quot;&#x27;&quot; in string to their corresponding html entities.</p>
           </div>
           <div id="find_last">
             <h2>
-              <code>init.find_last(s:string,match:string):table</code>
+              <code>str.find_last(s:string,match:string):table</code>
             </h2>
             <p>returns nil if the value is not found</p>
           </div>
           <div id="includes">
             <h2>
-              <code>init.includes(s:string,substr:string):boolean</code>
+              <code>str.includes(s:string,substr:string):boolean</code>
             </h2>
             <p>determines wether the substring was found within the string</p>
           </div>
           <div id="index_of">
             <h2>
-              <code>init.index_of(s:string,substr:string):number</code>
+              <code>str.index_of(s:string,substr:string):number</code>
             </h2>
             <p>returns the position of the first occurrence of a specific substring</p>
           </div>
           <div id="is_ascii">
             <h2>
-              <code>init.is_ascii(s:string):boolean</code>
+              <code>str.is_ascii(s:string):boolean</code>
             </h2>
             <p>checks whether the string has only ascii characters</p>
           </div>
           <div id="is_number">
             <h2>
-              <code>init.is_number(s:string):boolean</code>
+              <code>str.is_number(s:string):boolean</code>
             </h2>
             <p>checks whether the string has only numbers characters</p>
           </div>
           <div id="kebab_case">
             <h2>
-              <code>init.kebab_case(s:string):string</code>
+              <code>str.kebab_case(s:string):string</code>
             </h2>
             <p>converts string to &#x60;kebab case&#x60;</p>
           </div>
           <div id="replace">
             <h2>
-              <code>init.replace(s:string,substr:string,new_substr:string):number</code>
+              <code>str.replace(s:string,substr:string,new_substr:string):number</code>
             </h2>
             <p>returns a new string replacing the specific values from the original string</p>
           </div>
           <div id="slice">
             <h2>
-              <code>init.slice(s:string,start:number,finish:number | nil):string</code>
+              <code>str.slice(s:string,start:number,finish:number | nil):string</code>
             </h2>
             <p>extracts a part of the string and returns a new string</p>
           </div>
           <div id="slug">
             <h2>
-              <code>init.slug(s:string):string</code>
+              <code>str.slug(s:string):string</code>
             </h2>
             <p>converts string to slug and returns it as a new string</p>
           </div>
           <div id="snake_case">
             <h2>
-              <code>init.snake_case(s:string):string</code>
+              <code>str.snake_case(s:string):string</code>
             </h2>
             <p>converts string to &#x60;snake case&#x60;</p>
           </div>
           <div id="split">
             <h2>
-              <code>init.split(s:string,pattern:string):table</code>
+              <code>str.split(s:string,pattern:string):table</code>
             </h2>
             <p>splits the string into substring using the specified separator and return them as a table</p>
           </div>
           <div id="starts_with">
             <h2>
-              <code>init.starts_with(s:string,start:number):string</code>
+              <code>str.starts_with(s:string,start:number):string</code>
             </h2>
             <p>checks whether string starts with the value passed by parameter</p>
           </div>
           <div id="trim">
             <h2>
-              <code>init.trim(s:string):string</code>
+              <code>str.trim(s:string):string</code>
             </h2>
             <p>returns a copy of string leading and trailing whitespace removed</p>
           </div>
           <div id="trim_left">
             <h2>
-              <code>init.trim_left(s:string):string</code>
+              <code>str.trim_left(s:string):string</code>
             </h2>
             <p>returns a new string with leading whitespace removed</p>
           </div>
           <div id="trim_right">
             <h2>
-              <code>init.trim_right(s:string):string</code>
+              <code>str.trim_right(s:string):string</code>
             </h2>
             <p>returns a new string with trailing whitespace removed</p>
           </div>
           <div id="truncate">
             <h2>
-              <code>init.truncate(s:string,options:table):table</code>
+              <code>str.truncate(s:string,options:table):table</code>
             </h2>
             <p>truncates string if it&#x27;s longer than the given maximum size</p>
           </div>
           <div id="unescape">
             <h2>
-              <code>init.unescape(s:string):string</code>
+              <code>str.unescape(s:string):string</code>
             </h2>
             <p>converts the HTML entities &#x60;&amp;amp;&#x60;, &#x60;&amp;lt;&#x60;, &#x60;&amp;gt;&#x60;, &#x60;&amp;quot;&#x60; and &#x60;&amp;#39;&#x60; in string to their corresponding characters.</p>
           </div>
