@@ -1,5 +1,5 @@
 # str
-<code>str</code> is a string module with useful methods that don't exist in Lua's core
+<code>str</code> is a string module with useful methods that don't exist in Lua's core<br>
 For docs, see: https://evandrolg.github.io/str/
 
 [![Build
