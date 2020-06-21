@@ -41,6 +41,9 @@ local function match_case(s, transformer)
   return table.concat(result, '')
 end
 
+-- returns an array-line table with the keys from a given hash-like table
+-- @param obj {table}
+-- @return {table}
 local function hash_keys(obj)
   local output = {}
 
@@ -54,7 +57,7 @@ end
 -- determines wether the substring was found within the string
 -- @param s {string}
 -- @param substr {string}
--- @return boolean
+-- @return {boolean}
 local function includes(s, substr)
   for i=1, #s do
     local value = string.sub(s, i, i+#substr-1)
@@ -67,7 +70,7 @@ end
 -- determines wether one of the items intot he array was found within the string
 -- @param s {string}
 -- @param array {table}
--- @return boolean
+-- @return {boolean}
 local function includes_item(s, array)
   for i, v in pairs(array) do
     local result = includes(s, v)

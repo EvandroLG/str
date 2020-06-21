@@ -2,7 +2,7 @@ local test = require 'simple_test'
 local str = require 'str'
 
 test('meta infos', function(a)
-  a.equal(str.__VERSION, '1.4.0')
+  a.equal(str.__VERSION, '1.5.0')
   a.equal(str.__DESCRIPTION, "str is a string module with useful methods that don't exist in Lua's core")
 end)
 

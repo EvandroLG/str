@@ -4,7 +4,7 @@ local utils = require 'str.utils'
 local str
 
 str = {
-  __VERSION = '1.4.0',
+  __VERSION = '1.5.0',
   __DESCRIPTION = "str is a string module with useful methods that don't exist in Lua's core",
   __LICENCE = [[
     The MIT License (MIT)
@@ -352,11 +352,18 @@ str = {
     return table.concat(output, '')
   end,
 
+  -- returns the position of the first occurrence of a specific substring
+  -- @param s {string}
+  -- @param substr {string}
+  -- @return number
   index_of = function(s, substr)
     local index = string.find(s, substr, 1, true)
     return index or -1
   end,
 
+  -- converts the HTML entities `&amp;`, `&lt;`, `&gt;`, `&quot;` and `&#39;` in string to their corresponding characters.
+  -- @param s {string}
+  -- @return string
   unescape = function(s)
     local match = {
       ['&lt;'] = '<',
@@ -375,6 +382,11 @@ str = {
     return result
   end,
 
+  -- returns a new string replacing the specific values from the original string
+  -- @param s {string}
+  -- @param substr {string}
+  -- @param new_substr {string}
+  -- @return number
   replace = function(s, substr, new_substr)
     local result = string.gsub(s, substr, new_substr)
     return result
