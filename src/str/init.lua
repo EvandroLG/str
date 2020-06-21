@@ -296,14 +296,14 @@ str = {
 
   -- converts string to `camel case`
   -- @param s {string}
-  -- @return string
+  -- @return {string}
   camel_case = function(s)
     return utils.match_case(s, str.capitalize)
   end,
 
   -- converts string to `kebab case`
   -- @param s {string}
-  -- @return string
+  -- @return {string}
   kebab_case = function(s)
     return utils.match_case(s, function(w)
       return '-' .. w
@@ -312,7 +312,7 @@ str = {
 
   -- converts string to `snake case`
   -- @param s {string}
-  -- @return string
+  -- @return {string}
   snake_case = function(s)
     return utils.match_case(s, function(w)
       return '_' .. w
@@ -322,14 +322,14 @@ str = {
   -- determines wether the substring was found within the string
   -- @param s {string}
   -- @param substr {string}
-  -- @return boolean
+  -- @return {boolean}
   includes = function(s, substr)
     return utils.includes(s, substr)
   end,
 
   -- converts the characters "&", "<", ">", '"', and "'" in string to their corresponding html entities.
   -- @param s {string}
-  -- @return string
+  -- @return {string}
   escape = function(s)
     local match = {
       ['<'] = '&lt;',
@@ -355,7 +355,7 @@ str = {
   -- returns the position of the first occurrence of a specific substring
   -- @param s {string}
   -- @param substr {string}
-  -- @return number
+  -- @return {number}
   index_of = function(s, substr)
     local index = string.find(s, substr, 1, true)
     return index or -1
@@ -363,7 +363,7 @@ str = {
 
   -- converts the HTML entities `&amp;`, `&lt;`, `&gt;`, `&quot;` and `&#39;` in string to their corresponding characters.
   -- @param s {string}
-  -- @return string
+  -- @return {string}
   unescape = function(s)
     local match = {
       ['&lt;'] = '<',
@@ -386,7 +386,7 @@ str = {
   -- @param s {string}
   -- @param substr {string}
   -- @param new_substr {string}
-  -- @return number
+  -- @return {number}
   replace = function(s, substr, new_substr)
     local result = string.gsub(s, substr, new_substr)
     return result
